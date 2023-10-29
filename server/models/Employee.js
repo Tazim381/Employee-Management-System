@@ -2,12 +2,20 @@ const mongoose = require('mongoose');
 
 // Define the schema for the Employee collection
 const employeeSchema = new mongoose.Schema({
-  id: Number,
+  id:{
+    type: Number,
+    required: true,
+    unique: true
+  },
   firstName: String,
   lastName: String,
   age: Number,
   position: String,
-  email: String,
+  email:{
+    type: String,
+    required: true,
+    unique: true
+  },
   phone: String,
   address: String,
   image: String,

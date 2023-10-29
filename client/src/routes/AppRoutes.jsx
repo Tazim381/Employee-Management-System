@@ -9,6 +9,7 @@ import Dashboard from '../pages/Dashboard';
 import { SecureRoute } from './SecureRoute';
 import AddEmployee from '../pages/AddEmployee';
 import Employees from '../pages/Employees';
+import UpdateEmployee from '../pages/UpdateEmployee';
 
 const secureRouteWrapper = (element) => <SecureRoute>{element}</SecureRoute>;
 
@@ -39,8 +40,12 @@ export function AppRoutes() {
         element:(<Employees/>),
     },
       {
-        path: 'addemployee',
+        path: 'addemployee/',
         element:(<AddEmployee/>),
+    },
+    {
+      path: 'updateEployee/:id',
+      element:(<UpdateEmployee/>),
     },
       ],
     },

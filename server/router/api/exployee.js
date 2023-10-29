@@ -20,6 +20,7 @@ employeeRouter.post("/register",async(req,res)=>{
             lastName: lastName,
             age: age, 
             position:position, 
+            email: email,
             phone: phone, 
             address:address, 
             image: image, 
@@ -57,6 +58,52 @@ employeeRouter.get(("/"), async(req,res)=>{
         res.status(500).json("Internal Server Error")
     }
 })
+
+employeeRouter.delete("/:id", async (req, res) => {
+    try {
+        const id = (req.params.id);
+        const  employee = await Employee.findOneAndDelete({id:id})
+        console.log(employee)
+        if (employee) {
+            res.status(200).json(employee);
+        } else {
+            res.status(404).json("Employee not found");
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json("Internal Server Error");
+    }
+});
+
+
+employeeRouter.get(("/:id"), async(req,res)=>{
+    try{
+        const id = req.params.id
+        const employee =await Employee.findOne({id: id})
+        res.status(200).json(employee)
+    } 
+    catch(error) {
+        console.log(error)
+        res.status(500).json("Internal Server Error")
+    }
+})
+
+
+employeeRouter.put("/update/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+        const body = req.body;
+        const employee = await Employee.findOneAndUpdate({id:id}, body, { new: true });
+        if (employee) {
+          res.json(employee);
+        } else {
+          res.status(404).json({ message: "user not found" });
+        }
+      } catch (error) {
+        res.status(500).json({ message: "update e jhamela hoitese" });
+      }
+ });
+
 
 
 module.exports = employeeRouter
