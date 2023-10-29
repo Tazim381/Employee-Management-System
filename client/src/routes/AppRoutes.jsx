@@ -41,11 +41,11 @@ export function AppRoutes() {
     },
       {
         path: 'addemployee/',
-        element:(<AddEmployee/>),
+        element:secureRouteWrapper(<AddEmployee/>),
     },
     {
       path: 'updateEployee/:id',
-      element:(<UpdateEmployee/>),
+      element:secureRouteWrapper(<UpdateEmployee/>),
     },
       ],
     },

@@ -2,7 +2,20 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+
+
+
+
 const Employees = () => {
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+    useEffect(() => {
+        const isUser = localStorage.getItem('set-token-for-user');
+        if (isUser) {
+            setIsAuthenticated(true);
+        }
+    }, [isAuthenticated]);
+
     const [employees, setEmployees] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/api/employee')
@@ -10,7 +23,7 @@ const Employees = () => {
             .then(data => {
                 setEmployees(data)
             })
-    },[employees])
+    }, [employees])
 
     const deleteEmployee = (id) => {
         try {
@@ -24,7 +37,7 @@ const Employees = () => {
         } catch (error) {
             console.log("Delete error:", error);
         }
-    }    
+    }
 
     return (
         <div className='align-middle' >
@@ -36,8 +49,12 @@ const Employees = () => {
                         <th className='pl-10'>Position</th>
                         <th className='pl-10'>Phone No</th>
                         <th className='pl-10'>Salary</th>
-                        <th className='pl-10'>Update</th>
-                        <th className='pl-10'>Delete</th>
+                        {
+                            isAuthenticated && <th className='pl-10'>Update</th>
+                        }
+                        {
+                            isAuthenticated && <th className='pl-10'>Delete</th>
+                        }
                     </tr>
                 </thead>
                 <tbody >
@@ -49,10 +66,15 @@ const Employees = () => {
                                 <td className='pl-10'>{employee.position}</td>
                                 <td className='pl-10'>{employee.phone}</td>
                                 <td className='pl-10'>{employee.salary}</td>
-                                <td className='pl-10'> <button className=" bg-green-800 text-white p-1 px-2 ml-8 mt-5"><Link to={`/updateEployee/${employee.id}`}>Update</Link></button>
+                                <td className='pl-10'>
+                                    {
+                                        isAuthenticated && <button className=" bg-green-800 text-white p-1 px-2 ml-8 mt-5"><Link to={`/updateEployee/${employee.id}`}>Update</Link></button>
+                                    }
                                 </td>
                                 <td className='pl-8'>
-                                    <button className=" bg-red-800 text-white p-1 px-2 ml-8 mt-5" onClick={() => deleteEmployee(employee.id)}>Delete</button>
+                                    {
+                                        isAuthenticated && <button className=" bg-red-800 text-white p-1 px-2 ml-8 mt-5" onClick={() => deleteEmployee(employee.id)}>Delete</button>
+                                    }
                                 </td>
                             </tr>
                         ))

@@ -16,6 +16,7 @@ const handleLogout =() =>{
   localStorage.removeItem('set-token-for-user')
   setIsAuthenticated(false);
   alert('Logged out successfully');
+  window.location.reload()
 }
 
   return (
@@ -31,7 +32,7 @@ const handleLogout =() =>{
           isAuthenticated && <button onClick={() => navigate("/dashboard")}>Dashboard</button>
         } 
          { 
-           <button onClick={() => navigate("/addemployee")}>Add Employee</button>
+          isAuthenticated &&  <button onClick={() => navigate("/addemployee")}>Add Employee</button>
         } 
         <div className='flex'>
           {
