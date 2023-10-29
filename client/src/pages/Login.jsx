@@ -10,20 +10,19 @@ const Login = () => {
         event.preventDefault();
         const form = event.target;
         try {
-          const response = await axios.post('http://localhost:5000/api/users/login', {
+           const response = await axios.post('http://localhost:5000/api/admin/login/', {
             email: form.email.value,
             password: form.password.value,
           });
           console.log(form.email.value)
-         // localStorage.setItem('set-token-for-user', response.data);
+          localStorage.setItem('set-token-for-user', response.data);
           alert("login successfull")
           form.reset();
           navigate("/");
-          // Redirect to profile page after successful login
           window.location.reload()
         } catch (error) {
           console.log(error);
-          alert("user name or password wrong")
+          alert("email or password wrong")
         }
       };
 
