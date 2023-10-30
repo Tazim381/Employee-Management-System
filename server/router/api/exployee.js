@@ -47,6 +47,14 @@ employeeRouter.post("/register",async(req,res)=>{
     }
 })
 
+employeeRouter.get('/someEmployees', async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 8;
+    const skip = (page-1) * limit;
+    const result = await Employee.find().skip(skip).limit(limit);
+    res.send(result);
+})
+
 
 employeeRouter.get(("/"), async(req,res)=>{
     try{
@@ -103,6 +111,7 @@ employeeRouter.put("/update/:id", async (req, res) => {
         res.status(500).json({ message: "update e jhamela hoitese" });
       }
  });
+
 
 
 
