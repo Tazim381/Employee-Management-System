@@ -83,7 +83,6 @@ employeeRouter.delete("/:id", async (req, res) => {
     }
 });
 
-
 employeeRouter.get(("/:id"), async(req,res)=>{
     try{
         const id = req.params.id
@@ -95,7 +94,6 @@ employeeRouter.get(("/:id"), async(req,res)=>{
         res.status(500).json("Internal Server Error")
     }
 })
-
 
 employeeRouter.put("/update/:id", async (req, res) => {
     try {

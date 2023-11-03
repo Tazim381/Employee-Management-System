@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter, useNavigate } from 'react-router-dom';
+import { Outlet, RouterProvider, createBrowserRouter, useNavigate } from 'react-router-dom';
 
 
 import HomePage from '../pages/Homepage';
@@ -10,6 +10,8 @@ import { SecureRoute } from './SecureRoute';
 import AddEmployee from '../pages/AddEmployee';
 import Employees from '../pages/Employees';
 import UpdateEmployee from '../pages/UpdateEmployee';
+import EmployeeDetails from '../pages/EmployeeDetails';
+import AdminProfile from '../pages/AdminProfile';
 
 const secureRouteWrapper = (element) => <SecureRoute>{element}</SecureRoute>;
 
@@ -36,9 +38,13 @@ export function AppRoutes() {
           element:secureRouteWrapper(<Dashboard/>),
       },
       {
-        path: 'employees',
+        path: 'employees/',
         element:(<Employees/>),
-    },
+      },
+        {
+        path: 'details/:id',
+        element:secureRouteWrapper(<EmployeeDetails/>)
+        },
       {
         path: 'addemployee/',
         element:secureRouteWrapper(<AddEmployee/>),
@@ -47,6 +53,10 @@ export function AppRoutes() {
       path: 'updateEployee/:id',
       element:secureRouteWrapper(<UpdateEmployee/>),
     },
+    {
+      path:'admin/profile',
+      element:secureRouteWrapper(<AdminProfile/>)
+    }
       ],
     },
   ]);

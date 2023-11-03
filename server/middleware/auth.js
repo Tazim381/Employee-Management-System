@@ -6,7 +6,7 @@ const authenticateToken =(req,res,next) =>{
     if(!token) {
         res.status(401).json({message:"Unauthorize user (token e somossa ase)"})
     } else {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET,(error,user)=>{
+         const decoded = jwt.verify(token, process.env.JWT_SECRET,(error,user)=>{
             if(error) {
                 res.status(401).json({message:"unauthorize user(token verify hoini)"})
             } else {

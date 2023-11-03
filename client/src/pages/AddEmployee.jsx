@@ -2,13 +2,13 @@ import React from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const AddEmployee = () => {
-  
+
   const navigate = useNavigate()
-  
+
   const handleSubmit = (event) => {
     event.preventDefault()
     const form = event.target
@@ -51,7 +51,7 @@ const AddEmployee = () => {
             <input type="number" name="id" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Id" required />
           </div>
           <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="firstName"   className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="First Name" required />
+            <input type="text" name="firstName" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="First Name" required />
           </div>
           <div className="flex items-center text-lg mb-6 md:mb-8">
             <input type="text" name="lastName" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Last Name" required />
