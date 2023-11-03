@@ -18,6 +18,8 @@ services:
     build:
       context: server
       dockerfile: Dockerfile
+    depends_on:
+      - ems_mongo
     ports:
       - 5000:5000
     restart: on-failure
@@ -27,3 +29,9 @@ services:
       - PORT= 5000
       - MONGODB_URL = mongodb+srv://tazim:tazim@employeemanagementsyste.ebfi9fx.mongodb.net/?retryWrites=true&w=majority
       - JWT_SECRET = tazim
+
+  ems_mongo:
+    container_name: ems_mongo
+    image: mongo
+    ports:
+      - 27017:27017
