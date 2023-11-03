@@ -16,7 +16,7 @@ run->  "npm run dev"
 
 I have a docker file but have some 
 issues in my docker file. The problem is 
-RUN npm install takes more time to install.
+"RUN npm install"  takes more time to install.
 Can't find out the problem. 
 if you resolve the problem then
 run->  
