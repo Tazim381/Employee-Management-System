@@ -1,12 +1,11 @@
-FROM  node:alpine
+FROM node:16.17.1
 
 WORKDIR /code
 
 ADD package.json .
-ADD package-lock.json .
 
 RUN npm install
 
 COPY . .
 
-CMD ["npm","run", "dev"]
+CMD ["npm", "run", "dev"]
