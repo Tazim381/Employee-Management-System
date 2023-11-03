@@ -1,16 +1,16 @@
 to run this code -------
 The first task is to install npm.
-run-> npm install 
+run-> "npm install" 
 then -> 
 install  dependencies 
 (because I forgot to install all the dependencies
 in --save mode )
 then ->
 goto server folder
-run->    npm run dev
+run->    "npm run dev"
 then->
 goto client folder
-run->  npm run dev
+run->  "npm run dev"
 
 
 
