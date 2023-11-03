@@ -15,9 +15,9 @@ run->  "npm run dev"
 
 
 I have a docker file but have some 
-issues in my docker file. The problem is 
-"RUN npm install"  takes more time to install.
-Can't find out the problem. 
+issues in my docker file. 
+Can't find out the problem.
+After running docker it says "This page isn't working right now" 
 if you resolve the problem then
 run->  
 "docker-compose up ems_client" to run this app into the docker.
