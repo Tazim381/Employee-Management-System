@@ -2,10 +2,11 @@ const express = require('express')
 const employeeRouter = express.Router()
 const Employee = require('../../models/Employee')
 const jwt = require("jsonwebtoken");
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const authenticateToken = require('../../middleware/auth');
 
 
-employeeRouter.post("/register",async(req,res)=>{
+employeeRouter.post("/register",authenticateToken,async(req,res)=>{
     const { id, firstName, lastName, age, position, email, phone, address, image, department, joiningDate, salary, skills,education } = req.body;
     console.log(id,firstName,lastName,age,position,email,phone,address,image,department,joiningDate,salary,skills)
     if (!id || !firstName || !lastName || !age || !position || !email || !phone || !address || !department || !joiningDate || !salary || !skills || !education) {
@@ -56,7 +57,7 @@ employeeRouter.get('/someEmployees', async (req, res) => {
 })
 
 
-employeeRouter.get(("/"), async(req,res)=>{
+employeeRouter.get(("/"),authenticateToken, async(req,res)=>{
     try{
         const employees =await Employee.find()
         res.status(200).json(employees)
@@ -67,7 +68,7 @@ employeeRouter.get(("/"), async(req,res)=>{
     }
 })
 
-employeeRouter.delete("/:id", async (req, res) => {
+employeeRouter.delete("/:id",authenticateToken, async (req, res) => {
     try {
         const id = (req.params.id);
         const  employee = await Employee.findOneAndDelete({id:id})
@@ -83,7 +84,7 @@ employeeRouter.delete("/:id", async (req, res) => {
     }
 });
 
-employeeRouter.get(("/:id"), async(req,res)=>{
+employeeRouter.get(("/:id"),authenticateToken, async(req,res)=>{
     try{
         const id = req.params.id
         const employee =await Employee.findOne({id: id})
@@ -95,7 +96,7 @@ employeeRouter.get(("/:id"), async(req,res)=>{
     }
 })
 
-employeeRouter.put("/update/:id", async (req, res) => {
+employeeRouter.put("/update/:id", authenticateToken,async (req, res) => {
     try {
         const id = req.params.id;
         const body = req.body;

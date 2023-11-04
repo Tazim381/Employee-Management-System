@@ -32,7 +32,12 @@ const UpdateEmployee = () => {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/employee/${id}`)
+    axios.get(`http://localhost:5000/api/employee/${id}`,{
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${localStorage.getItem(`set-token-for-user`)} `
+      }
+    })
       .then((response) => {
         const data = response.data;
         setEmployeeData(data);
@@ -54,7 +59,12 @@ const UpdateEmployee = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .put(`http://localhost:5000/api/employee/update/${id}`, employeeData)
+      .put(`http://localhost:5000/api/employee/update/${id}`, employeeData,{
+        method: 'PUT',
+        headers: {
+          authorization: `Bearer ${localStorage.getItem(`set-token-for-user`)} `
+        }
+      })
       .then((response) => {
         alert("Employee Updated");
         navigate("/employees");

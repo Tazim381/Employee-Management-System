@@ -24,7 +24,12 @@ const Employees = () => {
     }, [isAuthenticated]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/employee')
+        fetch('http://localhost:5000/api/employee',{
+            method: 'GET',
+            headers: {
+              authorization: `Bearer ${localStorage.getItem(`set-token-for-user`)} `
+            }
+          })
             .then(response => response.json())
             .then(data => {
                 setEmployees(data)
@@ -33,8 +38,14 @@ const Employees = () => {
 
     const deleteEmployee = (id) => {
         try {
-            axios.delete(`http://localhost:5000/api/employee/${id}`)
+            axios.delete(`http://localhost:5000/api/employee/${id}`,{
+                method: 'DELETE',
+                headers: {
+                  authorization: `Bearer ${localStorage.getItem(`set-token-for-user`)} `
+                }
+              })
                 .then((res) => {
+                    window.location.reload()
                     console.log(res);
                 })
                 .catch((error) => {
