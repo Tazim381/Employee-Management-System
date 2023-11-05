@@ -12,6 +12,7 @@ import Employees from '../pages/Employees';
 import UpdateEmployee from '../pages/UpdateEmployee';
 import EmployeeDetails from '../pages/EmployeeDetails';
 import AdminProfile from '../pages/AdminProfile';
+import DetailsCard from '../components/DetailsCard';
 
 const secureRouteWrapper = (element) => <SecureRoute>{element}</SecureRoute>;
 
@@ -39,7 +40,7 @@ export function AppRoutes() {
       },
       {
         path: 'employees/',
-        element:(<Employees/>),
+        element:(<Employees/>)
       },
         {
         path: 'details/:id',
@@ -56,6 +57,11 @@ export function AppRoutes() {
     {
       path:'admin/profile',
       element:secureRouteWrapper(<AdminProfile/>)
+    }
+    ,
+    {
+      path:'detailsView',
+      element:(<DetailsCard/>)
     }
       ],
     },

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import {motion} from 'framer-motion'
@@ -77,7 +77,8 @@ const Employees = () => {
 
 
     return (
-        <motion.div animate={{ x: 0 }}
+<>
+<motion.div animate={{ x: 0 }}
         initial={{ x: 1000 }} 
         exit={{ x: -1000 }}  className='flex flex-col items-center align-middle min-h-screen' >
             <input
@@ -181,6 +182,8 @@ const Employees = () => {
                 }
             </div>
         </motion.div>
+       
+</>
     )
 }
 
