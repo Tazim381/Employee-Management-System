@@ -31,7 +31,7 @@ const AddEmployee = () => {
         university: form.university.value,
         graduationYear: form.graduationYear.value
       }]
-    },{
+    }, {
       method: 'POST',
       headers: {
         authorization: `Bearer ${localStorage.getItem(`set-token-for-user`)} `
