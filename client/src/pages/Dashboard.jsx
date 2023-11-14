@@ -16,7 +16,7 @@ export default function Dashboard() {
 
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/employee',{
+    fetch('https://tazim-1234.vercel.app/api/employee',{
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage.getItem(`set-token-for-user`)} `

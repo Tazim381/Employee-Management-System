@@ -24,7 +24,7 @@ const Employees = () => {
     }, [isAuthenticated]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/employee',{
+        fetch('https://tazim-1234.vercel.app/api/employee',{
             method: 'GET',
             headers: {
               authorization: `Bearer ${localStorage.getItem(`set-token-for-user`)} `
@@ -38,7 +38,7 @@ const Employees = () => {
 
     const deleteEmployee = (id) => {
         try {
-            axios.delete(`http://localhost:5000/api/employee/${id}`,{
+            axios.delete(`https://tazim-1234.vercel.app/api/employee/${id}`,{
                 method: 'DELETE',
                 headers: {
                   authorization: `Bearer ${localStorage.getItem(`set-token-for-user`)} `
@@ -57,13 +57,13 @@ const Employees = () => {
     }
 
     const totalEmployees = employees.length;
-    console.log(totalEmployees)
+    //console.log(totalEmployees)
     const itemsPerPage = 8;
     const totalPages = Math.ceil(totalEmployees / itemsPerPage);
     const pageNumbers = [...Array(totalPages).keys()];
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch(`http://localhost:5000/api/employee/someEmployees?page=${currentPage}&limit=${itemsPerPage}`)
+            const response = await fetch(`https://tazim-1234.vercel.app/api/employee/someEmployees?page=${currentPage}&limit=${itemsPerPage}`)
             const data = await response.json();
             setSomeEmployees(data);
            // console.log(someEmployees)
@@ -145,6 +145,11 @@ const Employees = () => {
                                             isAuthenticated && <button className=" bg-red-800 text-white p-1 px-2 ml-8 mt-5" onClick={() => deleteEmployee(employee.id)}>Delete</button>
                                         }
                                     </td>
+                                    <td className='pl-8'>
+                                        {
+                                            isAuthenticated && <button className=" bg-green-800 text-white p-1 px-2 ml-8 mt-5"><Link to={`/details/${employee.id}`}>Details</Link></button>
+                                        }
+                                    </td>
                                 </tr>
                             )
                             ) : someEmployees.map((employee, index) => (
@@ -164,7 +169,7 @@ const Employees = () => {
                                             isAuthenticated && <button className=" bg-red-800 text-white p-1 px-2 ml-8 mt-5" onClick={() => deleteEmployee(employee.id)}>Delete</button>
                                         }
                                     </td>
-                                    <td className='pl-10'>
+                                    <td className='pl-8'>
                                         {
                                             isAuthenticated && <button className=" bg-green-800 text-white p-1 px-2 ml-8 mt-5"><Link to={`/details/${employee.id}`}>Details</Link></button>
                                         }
