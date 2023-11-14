@@ -6,11 +6,9 @@ install  dependencies
 (because I forgot to install all the dependencies
 in --save mode )
 then ->
-goto server folder
-run->    "npm run dev"
-then->
 goto client folder
 run->  "npm run dev"
+(I deploy this code into vercel so noo need to run backend(server) , thank you)
 
 
 
