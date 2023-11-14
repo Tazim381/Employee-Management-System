@@ -57,7 +57,7 @@ employeeRouter.get('/someEmployees', async (req, res) => {
 })
 
 
-employeeRouter.get(("/"),authenticateToken, async(req,res)=>{
+employeeRouter.get(("/"), async(req,res)=>{
     try{
         const employees =await Employee.find()
         res.status(200).json(employees)
