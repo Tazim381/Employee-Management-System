@@ -57,6 +57,7 @@ const Employees = () => {
     }
 
     const totalEmployees = employees.length;
+    console.log(totalEmployees)
     const itemsPerPage = 8;
     const totalPages = Math.ceil(totalEmployees / itemsPerPage);
     const pageNumbers = [...Array(totalPages).keys()];
@@ -65,7 +66,7 @@ const Employees = () => {
             const response = await fetch(`http://localhost:5000/api/employee/someEmployees?page=${currentPage}&limit=${itemsPerPage}`)
             const data = await response.json();
             setSomeEmployees(data);
-            console.log(someEmployees)
+           // console.log(someEmployees)
         }
         fetchData()
     }, [currentPage, itemsPerPage])
