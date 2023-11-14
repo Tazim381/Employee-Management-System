@@ -9,7 +9,7 @@ const EmployeeDetails = () => {
   const { id } = useParams();
   const [employeeData, setEmployeeData] = useState([])
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/employee/${id}`, {
+    axios.get(`https://tazim-1234.vercel.app/api/employee/${id}`, {
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage.getItem(`set-token-for-user`)} `
@@ -18,7 +18,6 @@ const EmployeeDetails = () => {
       .then((response) => {
         const data = response.data;
         setEmployeeData(data);
-        setImageURL(data.image)
         console.log(data.image)
       })
       .catch((error) => {

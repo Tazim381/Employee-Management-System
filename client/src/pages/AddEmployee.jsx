@@ -12,7 +12,7 @@ const AddEmployee = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     const form = event.target
-    axios.post('http://localhost:5000/api/employee/register', {
+    axios.post('https://tazim-1234.vercel.app/api/employee/register', {
       id: form.id.value,
       firstName: form.firstName.value,
       lastName: form.lastName.value,

@@ -9,7 +9,7 @@ const Register = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     const form = event.target;
-    axios.post('http://localhost:5000/api/admin/register', {
+    axios.post('https://tazim-1234.vercel.app/api/admin/register', {
       username: form.username.value,
       email: form.email.value,
       password: form.password.value,

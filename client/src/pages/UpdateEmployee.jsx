@@ -32,7 +32,7 @@ const UpdateEmployee = () => {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/employee/${id}`,{
+    axios.get(`https://tazim-1234.vercel.app/api/employee/${id}`,{
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage.getItem(`set-token-for-user`)} `
@@ -59,7 +59,7 @@ const UpdateEmployee = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .put(`http://localhost:5000/api/employee/update/${id}`, employeeData,{
+      .put(`https://tazim-1234.vercel.app/api/employee/update/${id}`, employeeData,{
         method: 'PUT',
         headers: {
           authorization: `Bearer ${localStorage.getItem(`set-token-for-user`)} `

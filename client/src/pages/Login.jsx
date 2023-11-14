@@ -10,7 +10,7 @@ const Login = () => {
     event.preventDefault();
     const form = event.target;
     try {
-      const response = await axios.post('http://localhost:5000/api/admin/login/', {
+      const response = await axios.post('https://tazim-1234.vercel.app/api/admin/login/', {
         email: form.email.value,
         password: form.password.value,
       });

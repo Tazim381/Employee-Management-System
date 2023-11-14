@@ -17,7 +17,7 @@ const Navbar = () => {
   }, [isAuthenticated]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/admin/profile", {
+    fetch("https://tazim-1234.vercel.app/api/admin/profile", {
       method: 'GET',
       headers: {
         authorization: `Bearer ${localStorage.getItem(`set-token-for-user`)} `
