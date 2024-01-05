@@ -73,7 +73,7 @@ const Employees = () => {
 
 
     const handlePositionFlag = () => {
-        setPositionFlag(true)
+        setPositionFlag(!positionFlag)
     }
 
 
@@ -89,63 +89,63 @@ const Employees = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <table className='items-center max-w-full mx-auto m-14 '>
+            <table className='items-center max-w-full  table-fixed mx-14 mt-14 mr-14 mb-14'>
                 <thead className='bg-gray-300 h-11'>
                     <tr>
-                        <th>Name</th>
-                        <th className='pl-10'>Age</th>
-                        <th>
-                            <div className='pl-10 flex items-center flex-col'><div>Position <button onClick={() => handlePositionFlag()}><FontAwesomeIcon icon={faFilter} /> </button></div>
+                        <th className=''>Name</th>
+                        <th className=''>Age</th>
+                        <th className='w-1/4'>
+                            <div className=' flex items-center flex-col'><div>Position <button onClick={() => handlePositionFlag()}><FontAwesomeIcon icon={faFilter} /> </button></div>
                                 {
                                     positionFlag && <input value={positionFilter}
                                         onChange={(e) => setPositionFilter(e.target.value)} className='border-1 border-gray-700 rounded-md' placeholder='enter position' />
                                 }
                             </div>
                         </th>
-                        <th className='pl-10'>
-                            <div className='pl-10 flex items-center flex-col'><div>Department <button onClick={() => setDepartmentFlag(true)}><FontAwesomeIcon icon={faFilter} /> </button></div>
+                        <th className=' w-2/12'>
+                            <div className=' flex items-center flex-col'><div>Department <button onClick={() => setDepartmentFlag(!departmentFlag)}><FontAwesomeIcon icon={faFilter} /> </button></div>
                                 {
                                     departmentFlag && <input value={departmentFilter}
                                         onChange={(e) => setDepartmentFilter(e.target.value)} className='border-1 border-gray-700 rounded-md' placeholder='enter position' />
                                 }
                             </div>
                         </th>
-                        <th className='pl-10'>Salary</th>
+                        <th className=''>Salary</th>
                         {
-                            isAuthenticated && <th className='pl-10'>Update</th>
+                            isAuthenticated && <th className=''>Update</th>
                         }
                         {
-                            isAuthenticated && <th className='pl-10'>Delete</th>
+                            isAuthenticated && <th className=''>Delete</th>
                         }
                         {
-                            isAuthenticated && <th className='pl-10'>Details</th>
+                            isAuthenticated && <th className=''>Details</th>
                         }
                     </tr>
                 </thead>
                 <tbody >
                     {
-                        searchQuery || positionFlag || departmentFlag ? employees.filter(employee => employee.firstName.toLowerCase().includes(searchQuery)
+                        searchQuery || positionFlag || departmentFlag ? employees.filter(employee => employee.firstName.toLowerCase().includes(searchQuery.toLowerCase())
                             &&
-                            (!positionFilter || employee.position.toLowerCase().includes(positionFilter))
+                            (!positionFilter || employee.position.toLowerCase().includes(positionFilter.toLowerCase()))
                             &&
-                            (!departmentFilter || employee.department.toLowerCase().includes(departmentFilter))).map((employee, index) => (
-                                <tr>
-                                    <td className='pl-10'>{employee.firstName} {" "} {employee.lastName}</td>
-                                    <td className='pl-10'>{employee.age}</td>
-                                    <td className='pl-10'>{employee.position}</td>
-                                    <td className='pl-10'>{employee.department}</td>
-                                    <td className='pl-10 pr-5'>{employee.salary}</td>
-                                    <td className='pl-10'>
+                            (!departmentFilter || employee.department.toLowerCase().includes(departmentFilter.toLowerCase()))).map((employee, index) => (
+                                <tr className='bg-gray-100'>
+                                    <td className='border px-4 py-2'>{employee.firstName} {" "} {employee.lastName}</td>
+                                    <td className=' border px-4 py-2'>{employee.age}</td>
+                                    <td className='border px-4 py-2'>{employee.position}</td>
+                                    <td className=' border px-4 py-2'>{employee.department}</td>
+                                    <td className=' pr-5 border px-4 py-2'>{employee.salary}</td>
+                                    <td className=' border px-4 py-2'>
                                         {
                                             isAuthenticated && <button className=" bg-green-800 text-white p-1 px-2 ml-8 mt-5"><Link to={`/updateEployee/${employee.id}`}>Update</Link></button>
                                         }
                                     </td>
-                                    <td className='pl-8'>
+                                    <td className='border px-4 py-2'>
                                         {
                                             isAuthenticated && <button className=" bg-red-800 text-white p-1 px-2 ml-8 mt-5" onClick={() => deleteEmployee(employee.id)}>Delete</button>
                                         }
                                     </td>
-                                    <td className='pl-8'>
+                                    <td className=' border px-4 py-2'>
                                         {
                                             isAuthenticated && <button className=" bg-green-800 text-white p-1 px-2 ml-8 mt-5"><Link to={`/details/${employee.id}`}>Details</Link></button>
                                         }
@@ -153,23 +153,23 @@ const Employees = () => {
                                 </tr>
                             )
                             ) : someEmployees.map((employee, index) => (
-                                <tr>
-                                    <td className='pl-10'>{employee.firstName} {" "} {employee.lastName}</td>
-                                    <td className='pl-10'>{employee.age}</td>
-                                    <td className='pl-10'>{employee.position}</td>
-                                    <td className='pl-10'>{employee.department}</td>
-                                    <td className='pl-10 pr-5'>{employee.salary}</td>
-                                    <td className='pl-10'>
+                                <tr className='bg-gray-100'>
+                                    <td className=' border px-4 py-2'>{employee.firstName} {" "} {employee.lastName}</td>
+                                    <td className=' border px-4 py-2'>{employee.age}</td>
+                                    <td className=' border px-4 py-2'>{employee.position}</td>
+                                    <td className=' border px-4 py-2'>{employee.department}</td>
+                                    <td className='  border px-4 py-2' >{employee.salary}</td>
+                                    <td className=' border px-4 py-2'>
                                         {
                                             isAuthenticated && <button className=" bg-green-800 text-white p-1 px-2 ml-8 mt-5"><Link to={`/updateEployee/${employee.id}`}>Update</Link></button>
                                         }
                                     </td>
-                                    <td className='pl-8'>
+                                    <td className=' border px-4 py-2'>
                                         {
                                             isAuthenticated && <button className=" bg-red-800 text-white p-1 px-2 ml-8 mt-5" onClick={() => deleteEmployee(employee.id)}>Delete</button>
                                         }
                                     </td>
-                                    <td className='pl-8'>
+                                    <td className=' border px-4 py-2'>
                                         {
                                             isAuthenticated && <button className=" bg-green-800 text-white p-1 px-2 ml-8 mt-5"><Link to={`/details/${employee.id}`}>Details</Link></button>
                                         }

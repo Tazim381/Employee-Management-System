@@ -21,10 +21,10 @@ const Sidebar = ({ isSidebar, handleLogout }) => {
     <motion.div
       animate={isSidebar ? "open" : "closed"}
       variants={variants}
-      className={`h-100 w-56 mt-4 shadow-md  dark:bg-gray-900 fixed text-gray-100
+      className={`h-100 w-56 mt-4 z-50 shadow-md  dark:bg-gray-900 fixed text-gray-100
       }`}
     >
-      <div className="flex flex-col gap-5 p-5 mt-10 ">
+      <div className="flex flex-col gap-5 p-5 mt-10">
         <div className="flex items-center gap-2">
           <AiOutlineUser className=" text-2xl " />{" "}
           <button className="font-semibold">Profile</button>
