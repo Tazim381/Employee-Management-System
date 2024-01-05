@@ -42,7 +42,7 @@ const Navbar = () => {
 
  
   return (
-    <div className='items-center  dark:bg-gray-900 text-gray-100 flex justify-between h-20 pl-10 pr-10 text-xl'>
+    <div className='items-center  dark:bg-gray-900 text-gray-100 flex justify-between h-20 pl-10 pr-10 '>
       <div className='flex gap-2'>
         <img src={image} className="h-10 w-10 rounded hidden sm:block" />
         <p className="font-bold text-3xl">
@@ -51,9 +51,9 @@ const Navbar = () => {
         </p>      </div>
       <div className='flex gap-10 '>
         <button onClick={() => navigate('/')} className='border-red-300'>
-          Home
+        Home
         </button>
-        <button onClick={() => navigate('/employees')}>Employees</button>
+        <button onClick={() => navigate('/about')}>About</button>
        
         {isAuthenticated && (
           <div className='relative group'>

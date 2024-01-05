@@ -24,7 +24,7 @@ export function AppRoutes() {
       children: [
         {
           index: true,
-          element: <AboutPage />,
+          element: <Employees />,
         },
         {
             path: 'login',
@@ -39,8 +39,8 @@ export function AppRoutes() {
           element:secureRouteWrapper(<Dashboard/>),
       },
       {
-        path: 'employees/',
-        element:(<Employees/>)
+        path: 'about/',
+        element:(<AboutPage/>)
       },
         {
         path: 'details/:id',
