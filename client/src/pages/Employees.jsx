@@ -135,21 +135,27 @@ const Employees = () => {
                                     <td className='border px-4 py-2'>{employee.position}</td>
                                     <td className=' border px-4 py-2'>{employee.department}</td>
                                     <td className=' pr-5 border px-4 py-2'>{employee.salary}</td>
+                                    { isAuthenticated && 
                                     <td className=' border px-4 py-2'>
                                         {
                                             isAuthenticated && <button className=" bg-green-800 text-white p-1 px-2 ml-8 mt-5"><Link to={`/updateEployee/${employee.id}`}>Update</Link></button>
                                         }
                                     </td>
+                                    }
+                                    { isAuthenticated && 
                                     <td className='border px-4 py-2'>
                                         {
                                             isAuthenticated && <button className=" bg-red-800 text-white p-1 px-2 ml-8 mt-5" onClick={() => deleteEmployee(employee.id)}>Delete</button>
                                         }
                                     </td>
+                                    }
+                                    { isAuthenticated && 
                                     <td className=' border px-4 py-2'>
                                         {
                                             isAuthenticated && <button className=" bg-green-800 text-white p-1 px-2 ml-8 mt-5"><Link to={`/details/${employee.id}`}>Details</Link></button>
                                         }
                                     </td>
+                                    }
                                 </tr>
                             )
                             ) : someEmployees.map((employee, index) => (
@@ -159,21 +165,34 @@ const Employees = () => {
                                     <td className=' border px-4 py-2'>{employee.position}</td>
                                     <td className=' border px-4 py-2'>{employee.department}</td>
                                     <td className='  border px-4 py-2' >{employee.salary}</td>
+                                    {
+                                        isAuthenticated &&
+                                    
                                     <td className=' border px-4 py-2'>
                                         {
                                             isAuthenticated && <button className=" bg-green-800 text-white p-1 px-2 ml-8 mt-5"><Link to={`/updateEployee/${employee.id}`}>Update</Link></button>
                                         }
                                     </td>
+                                    }
+                                   {
+                                    isAuthenticated &&
+                                   
                                     <td className=' border px-4 py-2'>
                                         {
                                             isAuthenticated && <button className=" bg-red-800 text-white p-1 px-2 ml-8 mt-5" onClick={() => deleteEmployee(employee.id)}>Delete</button>
                                         }
                                     </td>
+                                    }
+
+                                    {
+                                        isAuthenticated &&
+                                    
                                     <td className=' border px-4 py-2'>
                                         {
                                             isAuthenticated && <button className=" bg-green-800 text-white p-1 px-2 ml-8 mt-5"><Link to={`/details/${employee.id}`}>Details</Link></button>
                                         }
                                     </td>
+                                    }
                                 </tr>
                             ))
                     }
