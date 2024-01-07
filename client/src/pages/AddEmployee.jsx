@@ -48,62 +48,132 @@ const AddEmployee = () => {
   }
 
   return (
-    <div className=" bg-slate-400  overflow-hidden flex items-center justify-center">
-      <div className="bg-white lg:w-6/12 md:7/12  rounded-xl mt-10 mb-10">
-        <form className="p-8 " onSubmit={handleSubmit}>
-          <div className=' content-center text-3xl font-bold mb-6 md:mb-8 text-gray-800'>Employee Information Form</div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="number" name="id" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Id" required />
+  <form className='lg:flex justify-center mt-10 mb-10 ' onSubmit={handleSubmit} >
+  <div class="border border-yellow-700 p-10 bg-slate-100 rounded-lg">
+    <div class="border-b border-gray-900/10 pb-12">
+      <h2 class="text-base font-semibold leading-7 text-gray-900 ">Employee Information</h2>
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-9">
+      <div class="sm:col-span-3">
+          <label  class="block text-sm font-medium leading-6 text-gray-900">ID</label>
+          <div class="mt-2">
+            <input type="number" name="id" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="firstName" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="First Name" required />
+        </div>
+        <div class="sm:col-span-3">
+          <label  class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+          <div class="mt-2">
+            <input type="text" name="firstName"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="lastName" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Last Name" required />
+        </div>
+
+        <div class="sm:col-span-3">
+          <label class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+          <div class="mt-2">
+            <input type="text" name="lastName"   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="number" name="age" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Age" required />
+        </div>
+
+        <div class="sm:col-span-4">
+          <label class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+          <div class="mt-2">
+            <input id="email" name="email" type="email"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="position" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Position" required />
+        </div>
+
+        <div class="sm:col-span-3">
+          <label  class="block text-sm font-medium leading-6 text-gray-900">Age</label>
+          <div class="mt-2">
+            <input  name="age" type="number"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="email" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Email" required />
+        </div>
+
+        <div class="sm:col-span-3">
+          <label  class="block text-sm font-medium leading-6 text-gray-900">Phone Number</label>
+          <div class="mt-2">
+            <input type="number" name="phone"   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="phone" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Phone Number" required />
+        </div>
+
+        
+        <div class="sm:col-span-3">
+          <label  class="block text-sm font-medium leading-6 text-gray-900">Address</label>
+          <div class="mt-2">
+            <input type="text" name="address"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="address" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Address" required />
+        </div>
+
+         
+        <div class="sm:col-span-3">
+          <label  class="block text-sm font-medium leading-6 text-gray-900">Position</label>
+          <div class="mt-2">
+            <input type="text" name="position"   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="image" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Image URL" required />
+        </div>
+
+        <div class="sm:col-span-3">
+          <label  class="block text-sm font-medium leading-6 text-gray-900">Department</label>
+          <div class="mt-2">
+            <input type="text" name="department"   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="department" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Department" required />
+        </div>
+
+        <div class="sm:col-span-2">
+          <label  class="block text-sm font-medium leading-6 text-gray-900">Salary</label>
+          <div class="mt-2">
+            <input type="number" name="salary"   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="joiningDate" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Joining Date" required />
+        </div>
+
+        <div class="sm:col-span-3">
+          <label  class="block text-sm font-medium leading-6 text-gray-900">Joining Date</label>
+          <div class="mt-2">
+            <input type="text" name="joiningDate"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="number" name="salary" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Salary" required />
+        </div>
+
+        <div class="sm:col-span-3 sm:col-start-1">
+          <label  class="block text-sm font-medium leading-6 text-gray-900">Degree</label>
+          <div class="mt-2">
+            <input type="text" name="degree"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="skills" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Skills" required />
+        </div>
+
+        <div class="sm:col-span-3">
+          <label  class="block text-sm font-medium leading-6 text-gray-900">University</label>
+          <div class="mt-2">
+            <input type="text" name="university"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="degree" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Degree" required />
+        </div>
+
+        <div class="sm:col-span-2">
+          <label  class="block text-sm font-medium leading-6 text-gray-900">Graduation Year</label>
+          <div class="mt-2">
+            <input type="number" name="graduationYear"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="university" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="University" required />
+        </div>
+ 
+        <div class="sm:col-span-4">
+          <label  class="block text-sm font-medium leading-6 text-gray-900">Skills</label>
+          <div class="mt-2">
+            <input type="text" name="skills"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" required/>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="number" name="graduationYear" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Graduation Year" required />
+        </div>
+        
+        <div class="sm:col-span-3">
+          <label  class="block text-sm font-medium leading-6 text-gray-900">Image Url</label>
+          <div class="mt-2">
+            <input type="text" name="image" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
           </div>
-          <button type="submit" className="border-gray-50 bg-gradient-to-b from-gray-700 to-gray-900 font-medium p-2 md:p-4 text-white uppercase w-full rounded">Add</button>
-        </form>
+        </div>
+
       </div>
     </div>
+
+    <button type="submit" class="flex w-full justify-center rounded-md bg-orange-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+
+  </div>
+</form>
+      
   )
 }
 

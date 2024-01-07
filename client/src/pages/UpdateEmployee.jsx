@@ -67,7 +67,7 @@ const UpdateEmployee = () => {
       })
       .then((response) => {
         alert("Employee Updated");
-        navigate("/employees");
+        navigate("/");
         console.log(response);
       })
       .catch((error) => {
@@ -110,7 +110,7 @@ const UpdateEmployee = () => {
           </div>
           <div className="items-center text-lg mb-6 md:mb-8">
             <p className='font-bold'>Image URL</p>
-            <input type="text" name="image" value={employeeData.image} onChange={handleInputChange} className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Image URL" required />
+            <input type="text" name="image" value={employeeData.image} onChange={handleInputChange} className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Image URL"  />
           </div>
           <div className=" items-center text-lg mb-6 md:mb-8">
             <p className='font-bold'>Department</p>

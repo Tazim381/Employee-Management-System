@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -16,7 +16,7 @@ const Register = () => {
     })
       .then((response) => {
         alert("Registration successfull")
-        navigate("/")
+        navigate("/login")
         console.log(response);
       })
       .catch((error) => {
@@ -25,20 +25,35 @@ const Register = () => {
   }
 
   return (
-    <div className=" bg-slate-400 h-screen overflow-hidden flex items-center justify-center">
-      <div className="bg-white lg:w-6/12 md:7/12  rounded-xl border-green-900 ">
-
-        <form className="p-8" onSubmit={handleSubmit}>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="username" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Username" />
+    <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Register to your account</h2>
+      </div>
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          <div>
+            <label class="block text-sm font-medium leading-6 text-gray-900">User Name</label>
+            <div className="mt-2">
+              <input name="username" type="text" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            </div>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="text" name="email" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Email" />
+          <div>
+            <label class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+            <div className="mt-2">
+              <input name="email" type="email" autocomplete="email" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            </div>
           </div>
-          <div className="flex items-center text-lg mb-6 md:mb-8">
-            <input type="password" name="password" className="bg-gray-200 rounded pl-12 py-2 md:py-4 focus:outline-none w-full" placeholder="Password" />
+          <div>
+            <div class="flex items-center justify-between">
+              <label class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+            </div>
+            <div class="mt-2">
+              <input name="password" type="password" autocomplete="current-password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+            </div>
           </div>
-          <button type="submit" className="border-gray-50 bg-gradient-to-b from-gray-700 to-gray-900 font-medium p-2 md:p-4 text-white uppercase w-full rounded">Register</button>
+          <div>
+            <button type="submit" class="flex w-full justify-center rounded-md bg-orange-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Register</button>
+          </div>
         </form>
       </div>
     </div>
